@@ -10,9 +10,18 @@ import Foundation
 
 /// Protocol representing a navigation that can be initated from coordinators
 public protocol Route {
+    /// Unique identifier assigned to a route which can be accessed by the type
+    static var routeIdentifier: String { get }
+    
     /// Unique identifier assigned to a route
     var identifier: String { get }
     
     /// Data to be passed along with the route
     var data: [String: Any] { get }
+}
+
+public extension Route {
+    var identifier: String {
+        return Self.routeIdentifier
+    }
 }
